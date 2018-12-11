@@ -32,7 +32,7 @@ public class DBTransac {
     public DBTransac() {
 
         try {
-            con = DriverManager.getConnection("jdbc:derby://localhost:1527/bpc", "adm", "adm");
+            con = DriverManager.getConnection("jdbc:derby://localhost:1527/bpc");
         } catch (SQLException sqle) {
             System.err.println(sqle.getMessage());
         }
