@@ -32,7 +32,7 @@ public class DBTransac {
     public DBTransac() {
 
         try {
-            con = DriverManager.getConnection("jdbc:derby://localhost:1527/bpc", "adm", "adm");
+            con = DriverManager.getConnection("jdbc:derby://localhost:1527/bpc");
         } catch (SQLException sqle) {
             System.err.println(sqle.getMessage());
         }
@@ -631,28 +631,6 @@ public class DBTransac {
         } catch (SQLException sqle) {
             System.err.println("SQLState: " + sqle.getSQLState());
             System.err.println("Message : " + sqle.getMessage());
-        }
-    }
-
-    /**
-     * Cette méthode ferme la connexion
-     */
-    void fermerConnexion() {
-
-        if (con != null) {
-            try {
-                con.close();
-                if (stmnt != null) {
-                    stmnt.close();
-                }
-                if (pstmnt != null) {
-                    pstmnt.close();
-                }
-                con = null;
-            } catch (SQLException ex) {
-                System.out.println("SQLState: " + ex.getSQLState());
-                System.out.println("Message : " + ex.getMessage());
-            }
         }
     }
 
