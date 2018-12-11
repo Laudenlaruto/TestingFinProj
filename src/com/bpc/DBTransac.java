@@ -634,26 +634,4 @@ public class DBTransac {
         }
     }
 
-    /**
-     * Cette méthode ferme la connexion
-     */
-    void fermerConnexion() {
-
-        if (con != null) {
-            try {
-                con.close();
-                if (stmnt != null) {
-                    stmnt.close();
-                }
-                if (pstmnt != null) {
-                    pstmnt.close();
-                }
-                con = null;
-            } catch (SQLException ex) {
-                System.out.println("SQLState: " + ex.getSQLState());
-                System.out.println("Message : " + ex.getMessage());
-            }
-        }
-    }
-
 }
